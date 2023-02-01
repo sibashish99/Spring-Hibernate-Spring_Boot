@@ -6,9 +6,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 	
+	//field injection
+	@Autowired
 	private FortuneService fortuneService;
 
-  /*@Autowired
+   //Constructor injection
+   /*@Autowired
 	public TennisCoach(FortuneService theFortuneService) {
 		 fortuneService =theFortuneService ;
   }*/
@@ -18,16 +21,16 @@ public class TennisCoach implements Coach {
 	}
 	
 	
-	
+   //Setter injection
    /* @Autowired
 	public void setFortuneService(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
-	}*/
+	}
 	
 	@Autowired
 	public void doAnyThing(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
-	}
+	}*/
 
 
 
