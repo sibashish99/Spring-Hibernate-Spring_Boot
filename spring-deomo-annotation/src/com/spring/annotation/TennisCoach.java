@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Component
-@Scope("prototype")
 public class TennisCoach implements Coach {
 	
 	//field injection
@@ -36,7 +36,7 @@ public class TennisCoach implements Coach {
 		this.fortuneService = fortuneService;
 	}*/
 
-
+	
 
 	@Override
 	public String getDailyWorkout() {
