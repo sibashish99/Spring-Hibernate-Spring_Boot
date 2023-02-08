@@ -13,6 +13,7 @@
       <property name="studentName" value="Sibashish Biswas" />
       <property name="studentAddress" value="Bangalore" />
    </bean>
+   
    <bean name="student2" class="com.spring.core.Student" p:studentId="2023002" p:studentName="Swapna biswas"  p:studentAddress="Kailashahar"  />
    
 </beans>
