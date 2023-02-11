@@ -9,9 +9,7 @@ public class Employee {
    private List<String> phones;
    private Set<String> address;
    private Map<String,String> courses;
-
-   
-   
+  
    
    public Employee() {
 	super();

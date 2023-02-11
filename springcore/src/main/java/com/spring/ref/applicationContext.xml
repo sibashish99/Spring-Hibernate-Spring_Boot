@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="https://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd
+  https://www.springframework.org/schema/context
+  https://www.springframework.org/schema/context/spring-context.xsd"
+ >
+  <bean class="com.spring.ref.SecondObject" name="secRef">
+    <property name="y" value="284" />
+  </bean>
+  
+  <!-- <bean class="com.spring.ref.FirstObject" name="firRef">
+    <property name="x" value="184" />
+   <property name="ob">
+      <ref bean="secRef"/>
+    </property>
+    <property name="ob" ref="secRef"/>
+  </bean> -->
+  <bean class="com.spring.ref.FirstObject" name="firRef" p:x="184" p:ob-ref="secRef" />
+  
+</beans>
