@@ -10,6 +10,9 @@ public class Application {
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/ci/applicationContext.xml");
 		Person p1=(Person) context.getBean("person");
 		System.out.println(p1);
+		
+		Addition a1= (Addition) context.getBean("addition");
+		a1.sumFun();
 	}
 
 }

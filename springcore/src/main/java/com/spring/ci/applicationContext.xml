@@ -25,4 +25,10 @@
       </constructor-arg>
        <constructor-arg ref="cert" />
    </bean>
+   
+   <bean class="com.spring.ci.Addition" name="addition">
+     <constructor-arg value="15" type="int" index="1"/>
+     <constructor-arg value="20" type="int" index="0"/>
+   </bean>
+   
 </beans>
