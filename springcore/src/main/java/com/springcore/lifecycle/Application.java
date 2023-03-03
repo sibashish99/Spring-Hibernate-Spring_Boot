@@ -12,8 +12,10 @@ public class Application {
 		// TODO Auto-generated method stub
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/springcore/lifecycle/applicationContext.xml");
 		Car var1=   (Car) context.getBean("car1");
+		Food var2 = (Food) context.getBean("food1");
 		
 		System.out.println(var1.toString());
+		System.out.println(var2.toString());
 		context.registerShutdownHook();
 	}
 

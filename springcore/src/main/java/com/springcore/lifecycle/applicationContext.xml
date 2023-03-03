@@ -13,4 +13,11 @@
      <property name="color" value="Black" />
      <property name="company" value="Maruti" />
    </bean>
+   
+    <bean class="com.springcore.lifecycle.Food" name="food1">
+     <property name="name" value="pepsi" />
+     <property name="type" value="drink" />
+     <property name="price" value="45" />
+   </bean>
+   
 </beans>
