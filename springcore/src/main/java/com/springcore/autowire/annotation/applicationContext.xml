@@ -16,6 +16,13 @@
      <property  name="pincode" value="123456"/>
    </bean>
    
+   <bean class="com.springcore.autowire.annotation.Address" name="address2">
+     <property  name="street" value="edf park"/>
+     <property  name="city" value="Efg"/>
+     <property  name="pincode" value="654321"/>
+   </bean>
+
+   
     <bean class="com.springcore.autowire.annotation.Employee" name="employee" autowire="byName"/>
     
     
