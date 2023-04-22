@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="https://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd
+  https://www.springframework.org/schema/context
+  https://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/util
+  http://www.springframework.org/schema/util/spring-util-2.5.xsd"
+ >
+   <util:list id="myList" list-class="java.util.LinkedList">
+         <value>Debashish</value>
+         <value>Subashish</value>
+         <value>Snehashish</value>
+   </util:list>
+   
+   <util:map id="fee" map-class="java.util.HashMap">
+         <entry key="Spring framwwork" value="5000"/>
+         <entry key="Django framwwork" value="4000"/>
+         <entry key="nodejs framwwork" value="5500"/>
+   </util:map>
+   
+   <bean name="person1" class="com.spring.standalone.Person">
+     <property name="friends">
+       <ref bean="myList" />
+     </property>
+      <property name="feesStructure" ref="fee"></property>
+   </bean>
+   
+   
+</beans>
