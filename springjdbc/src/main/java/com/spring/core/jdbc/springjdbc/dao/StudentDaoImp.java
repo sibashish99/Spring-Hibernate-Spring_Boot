@@ -1,5 +1,9 @@
 package com.spring.core.jdbc.springjdbc.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.spring.core.jdbc.springjdbc.entity.Student;
 
@@ -37,6 +41,26 @@ public class StudentDaoImp implements StudentDao{
 		// TODO Auto-generated method stub
 		String query= "delete  from student where id=?";
 		return this.jdbcTemplate.update(query,student.getId());
+	}
+
+
+	public List<Student> getAllStudent() {
+		// TODO Auto-generated method stub
+		String query = "select * from student";
+	    List<Student> students = new ArrayList<Student>();
+	    
+	    List<Map<String, Object>> studentRows = jdbcTemplate.queryForList(query);
+	    
+	    for (Map<String, Object> studentRow : studentRows) {
+	        Student student = new Student();
+	        student.setId((Integer) studentRow.get("id"));
+	        student.setName((String) studentRow.get("name"));
+	        student.setCity((String) studentRow.get("city"));
+	        students.add(student);
+	    }
+	    
+	    return students;
+		
 	}
 
 	
