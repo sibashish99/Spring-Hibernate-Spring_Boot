@@ -1,5 +1,7 @@
 package com.spring.core.jdbc.springjdbc;
 
+import java.util.Scanner;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,17 +13,42 @@ public class App
 {
     public static void main( String[] args )
     {
-        //System.out.println( "Hello World!" );
-    	ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/core/jdbc/springjdbc/applicationContext.xml");
-    	StudentDao template= context.getBean("studentDao",StudentDao.class);
+        System.out.println( "***************Welcome to student management***********" );
+        int choice=0;
+        Scanner sc = new Scanner(System.in);
     	
+        while(true) {
+         System.out.println("Enter your Choose \n 1 => Add Student \n 2 => Update of Student using id \n 3 => Delete Student by id \n  9 => Exit \n Enter:");
+         choice= sc.nextInt() ;
     	
-    	Student st= new Student();
-    	st.setId(1003);
-    	st.setName("Gopal");
-    	st.setCity("bangalore");
-    	int res= template.insertStudent(st);
-    	System.out.println("Nos of raws inserted "+res);
+    	 ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/core/jdbc/springjdbc/applicationContext.xml");
+    	 StudentDao template= context.getBean("studentDao",StudentDao.class);
     	
+    	 switch(choice){
+    	 case 1:
+    	   Student st= new Student();
+    	   st.setId(1004);
+    	   st.setName("Avi reddy");
+    	   st.setCity("Chennai");
+    	   System.out.println("Nos of raws inserted "+template.insertStudent(st));
+    	   break;
+    	 case 2:
+    		 Student st1= new Student();
+      	     st1.setId(1002);
+      	     st1.setName("channa");
+      	     st1.setCity("Noida");
+      	     System.out.println("Nos of raws updated "+ template.updateStudent(st1));
+      	     break;
+    	 case 3:
+    		 Student st3= new Student();
+      	     st3.setId(1004);
+      	     System.out.println("Nos of raws deleted "+ template.deleteStudent(st3));
+      	     break;
+    	
+    	 case 9:
+    		 System.out.println("Status exit..");
+		     System.exit(0);
+    	 }
+        }
     }
 }

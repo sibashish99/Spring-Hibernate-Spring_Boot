@@ -25,6 +25,20 @@ public class StudentDaoImp implements StudentDao{
 		
 	}
 
+
+	public int updateStudent(Student student) {
+		// TODO Auto-generated method stub
+		String query= "update student set name=? , city=? where id=?";
+		return this.jdbcTemplate.update(query,student.getName(),student.getCity(), student.getId());
+	}
+
+
+	public int deleteStudent(Student student) {
+		// TODO Auto-generated method stub
+		String query= "delete  from student where id=?";
+		return this.jdbcTemplate.update(query,student.getId());
+	}
+
 	
      
 }
