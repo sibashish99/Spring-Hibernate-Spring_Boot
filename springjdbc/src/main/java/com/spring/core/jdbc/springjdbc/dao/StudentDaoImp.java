@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
 import com.spring.core.jdbc.springjdbc.entity.Student;
 
 public class StudentDaoImp implements StudentDao{
@@ -43,7 +45,7 @@ public class StudentDaoImp implements StudentDao{
 		return this.jdbcTemplate.update(query,student.getId());
 	}
 
-
+    
 	public List<Student> getAllStudent() {
 		// TODO Auto-generated method stub
 		String query = "select * from student";
@@ -61,6 +63,15 @@ public class StudentDaoImp implements StudentDao{
 	    
 	    return students;
 		
+	}
+
+
+	public Student getStudentByid(Student student) {
+		// TODO Auto-generated method stub
+		String query = "select * from student where id=?";
+		RowMapper<Student> rowMapper = new RowMapperIml();
+		Student st5= this.jdbcTemplate.queryForObject(query, rowMapper, student.getId());
+		return st5;
 	}
 
 	
