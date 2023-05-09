@@ -1,16 +1,18 @@
 package com.spring.core.jdbc.springjdbc.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.spring.core.jdbc.springjdbc.entity.Student;
 
+@Component("studentDao")
 public class StudentDaoImp implements StudentDao{
 
+	
 	private JdbcTemplate jdbcTemplate;
 	
 	
@@ -18,7 +20,7 @@ public class StudentDaoImp implements StudentDao{
 		return jdbcTemplate;
 	}
 
-
+	@Autowired
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
