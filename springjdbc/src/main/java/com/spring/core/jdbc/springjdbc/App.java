@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -22,9 +23,11 @@ public class App
          System.out.println("Enter your Choose \n 1 => Add Student \n 2 => Update of Student using id \n 3 => Delete Student by id \n 4=> Get all student details \n 5=> Get student by id\n 9 => Exit \n Enter:");
          choice= sc.nextInt() ;
     	
-    	 ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/core/jdbc/springjdbc/applicationContext.xml");
-    	 StudentDao template= context.getBean("studentDao",StudentDao.class);
+    	 //ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/core/jdbc/springjdbc/applicationContext.xml");
+         ApplicationContext context = new AnnotationConfigApplicationContext(JDBCConfigjava.class);
+         StudentDao template= context.getBean("studentDao",StudentDao.class);
     	
+         
     	 switch(choice){
     	 case 1:
     	   Student st= new Student();
@@ -49,7 +52,8 @@ public class App
     		 List<Student> students = template.getAllStudent();
     		 System.out.println("All student details..");
              for (Student student : students) {
-                 System.out.println(student.getId() + " " + student.getName() + " " + student.getCity());
+                 //System.out.println(student.getId() + " " + student.getName() + " " + student.getCity());
+            	 System.out.println(student);
              }
              break;
     	 case 5:

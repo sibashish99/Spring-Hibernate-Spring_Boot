@@ -45,7 +45,7 @@ public class StudentDaoImp implements StudentDao{
 		return this.jdbcTemplate.update(query,student.getId());
 	}
 
-    
+    /**
 	public List<Student> getAllStudent() {
 		// TODO Auto-generated method stub
 		String query = "select * from student";
@@ -64,7 +64,14 @@ public class StudentDaoImp implements StudentDao{
 	    return students;
 		
 	}
-
+    */
+	
+	public List<Student> getAllStudent() {
+		// TODO Auto-generated method stub
+		String query = "select * from student";
+		List<Student> stl= this.jdbcTemplate.query(query, new RowMapperIml());
+		return stl;
+	}
 
 	public Student getStudentByid(Student student) {
 		// TODO Auto-generated method stub
@@ -73,6 +80,9 @@ public class StudentDaoImp implements StudentDao{
 		Student st5= this.jdbcTemplate.queryForObject(query, rowMapper, student.getId());
 		return st5;
 	}
+
+
+	
 
 	
      
