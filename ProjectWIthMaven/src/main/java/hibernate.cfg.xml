@@ -3,9 +3,7 @@
 <hibernate-configuration>
 	<session-factory>
 
-		<property name="hibernate.dialect">
-         org.hibernate.dialect.MySQLDialect
-        </property>
+		
 
 		<property name="connection.driver_class">
          com.mysql.jdbc.Driver
@@ -24,7 +22,7 @@
         </property>
 
 		<property name="dialect">
-         org.hibernate.dialect.MySQLDialect
+         org.hibernate.dialect.MySQL5Dialect
         </property>
 
 		<property name="hm2ddl.auto">
@@ -34,5 +32,7 @@
          <property name = "show_sql">
          true
          </property>
+         <property name="hibernate.current_session_context_class">thread</property>
+         <mapping class="com.spring.core.hibernate.Student"/>
 	</session-factory>
 </hibernate-configuration>
